@@ -1,8 +1,7 @@
 import tkinter as tk
-import tkinter.ttk as ttk
 from tkinter.constants import *
 import os.path
-
+import subprocess
 _location = os.path.dirname(__file__)
 
 class IndexFrame:
@@ -84,15 +83,25 @@ class IndexFrame:
         self.btnG2.configure(activebackground="#f9d4db")
         self.btnG2.configure(background="#f9545b")
         self.btnG2.configure(font="-family {Segoe Script} -size 15 -weight bold")
-        self.btnG2.configure(text='''Grupo 2''')
+        self.btnG2.configure(text='''Grupo 2''', command= lambda:self.open_group('2'))
 
         self.btnG1 = tk.Button(self.top)
         self.btnG1.place(relx=0.272, rely=0.382, height=56, width=157)
         self.btnG1.configure(activebackground="#f9d4db")
         self.btnG1.configure(background="#ff9690")
         self.btnG1.configure(font="-family {Segoe Script} -size 15 -weight bold")
-        self.btnG1.configure(text='''Grupo 1''')
+        self.btnG1.configure(text='''Grupo 1''', command=lambda:self.open_group('1'))
 
+    def open_group(self, group_number):
+        # Concatenar para apuntar al App.py respectivo
+        input_data_path = os.path.join(os.getcwd(), f"Group{group_number}", "App.py")
+
+        if os.path.exists(input_data_path):
+            subprocess.Popen(["python", input_data_path])
+            root.destroy() 
+        else:
+            print(f"Error: No se encontró el archivo {input_data_path}")
+    
 # Inicializacion de root.
 root = tk.Tk()
 root.protocol('WM_DELETE_WINDOW', root.destroy)
