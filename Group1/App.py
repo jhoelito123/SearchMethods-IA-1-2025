@@ -61,18 +61,18 @@ caníbales a la orilla derecha sin que en ningún momento los misioneros corran 
         self.imageProblem.configure(image=_img0)
     
     def open_code(self, id):
+        base_path = os.path.dirname(os.path.abspath(__file__))
+
         if id == 1:
-            open_path = os.path.join(os.getcwd(), "Group1", "Asterisco.py")
-            if os.path.exists(open_path):
-                subprocess.Popen(["python", open_path])
-            else:
-                print(f"Error: El archivo {open_path} no existe.")
+            open_path = os.path.join(base_path,"Asterisco.py")
         else:
-            open_path = os.path.join(os.getcwd(), "Group1", "BidirectionalSearch.py")
-            if os.path.exists(open_path):
-                subprocess.Popen(["python", open_path])
-            else:
-                print(f"Error: El archivo {open_path} no existe.")
+            open_path = os.path.join(base_path,"BidirectionalSearch.py")
+
+        if os.path.exists(open_path):
+            subprocess.Popen(["python", open_path])
+        else:
+            print(f"Error: El archivo {open_path} no existe.")
+
 
 # Inicializacion de root.
 root = tk.Tk()

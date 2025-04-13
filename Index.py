@@ -86,7 +86,8 @@ class IndexFrame:
 
     def open_group(self, group_number):
         # Concatenar para apuntar al App.py respectivo
-        input_data_path = os.path.join(os.getcwd(), f"Group{group_number}", "App.py")
+        base_path = os.path.dirname(os.path.abspath(__file__))
+        input_data_path = os.path.join(base_path, f"Group{group_number}", "App.py")
 
         if os.path.exists(input_data_path):
             subprocess.Popen(["python", input_data_path])
