@@ -1,6 +1,8 @@
 import tkinter as tk
 from tkinter.constants import *
 import os.path
+from Asterisco import astar  # Importar el algoritmo A* (Asterisco)
+from BidirectionalSearch import bidirectional_search  # Importar el algoritmo Bidireccional
 
 _location = os.path.dirname(__file__)
 
@@ -9,25 +11,30 @@ class PresentationFrame:
         top.geometry("964x648+283+88")
         top.minsize(120, 1)
         top.maxsize(1540, 845)
-        top.resizable(1,  1)
+        top.resizable(1, 1)
         top.title("Problema 1")
         top.configure(background="#F4F1D6")
         self.top = top
 
+        # Botón para el algoritmo A* (Primero en anchura)
         self.btnPrimAnchura = tk.Button(self.top)
         self.btnPrimAnchura.place(relx=0.197, rely=0.463, height=56, width=197)
         self.btnPrimAnchura.configure(activebackground="#F4F1D6")
         self.btnPrimAnchura.configure(background="#FCF75E")
         self.btnPrimAnchura.configure(font="-family {Segoe UI Black} -size 12 -weight bold")
         self.btnPrimAnchura.configure(text='''Primero en anchura''')
+        self.btnPrimAnchura.config(command=self.run_astar)  # Llamar a A* cuando se presiona
 
+        # Botón para el algoritmo Bidireccional
         self.btnOther = tk.Button(self.top)
         self.btnOther.place(relx=0.571, rely=0.463, height=56, width=197)
         self.btnOther.configure(activebackground="#F4F1D6")
         self.btnOther.configure(background="#FCF75E")
         self.btnOther.configure(font="-family {Segoe UI Black} -size 12 -weight bold")
         self.btnOther.configure(text='''Otro Algoritmo''')
+        self.btnOther.config(command=self.run_bidirectional)  # Llamar a la búsqueda bidireccional
 
+        # Título y descripción del problema
         self.titleProblem = tk.Label(self.top)
         self.titleProblem.place(relx=0.332, rely=0.0, height=50, width=314)
         self.titleProblem.configure(background="#F4F1D6")
@@ -59,7 +66,28 @@ caníbales a la orilla derecha sin que en ningún momento los misioneros corran 
         _img0 = tk.PhotoImage(file=photo_location)
         self.imageProblem.configure(image=_img0)
 
-# Inicializacion de root.
+    def run_astar(self):
+        # Lógica para ejecutar el algoritmo A* (Asterisco)
+        path = astar()
+        if path:
+            self.show_solution(path)
+        else:
+            print("No se encontró solución con A*")
+
+    def run_bidirectional(self):
+        # Lógica para ejecutar el algoritmo Bidireccional
+        path = bidirectional_search()
+        if path:
+            self.show_solution(path)
+        else:
+            print("No se encontró solución con el algoritmo bidireccional")
+
+    def show_solution(self, path):
+        # Mostrar la solución en la interfaz (por ejemplo, en una caja de texto o similar)
+        # Aquí puedes integrar la lógica para mostrar cada paso del camino en la interfaz.
+        print("Solución encontrada:", path)  # Aquí puedes adaptarlo a tu interfaz gráfica
+
+# Inicialización de root
 root = tk.Tk()
 root.protocol('WM_DELETE_WINDOW', root.destroy)
 _top1 = root
