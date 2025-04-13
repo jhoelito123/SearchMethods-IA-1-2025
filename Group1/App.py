@@ -1,7 +1,7 @@
 import tkinter as tk
 from tkinter.constants import *
 import os.path
-
+import subprocess
 _location = os.path.dirname(__file__)
 
 class PresentationFrame:
@@ -14,12 +14,12 @@ class PresentationFrame:
         top.configure(background="#F4F1D6")
         self.top = top
 
-        self.btnPrimAnchura = tk.Button(self.top)
-        self.btnPrimAnchura.place(relx=0.197, rely=0.463, height=56, width=197)
-        self.btnPrimAnchura.configure(activebackground="#F4F1D6")
-        self.btnPrimAnchura.configure(background="#FCF75E")
-        self.btnPrimAnchura.configure(font="-family {Segoe UI Black} -size 12 -weight bold")
-        self.btnPrimAnchura.configure(text='''Primero en anchura''')
+        self.btnAsterisco = tk.Button(self.top)
+        self.btnAsterisco.place(relx=0.197, rely=0.463, height=56, width=197)
+        self.btnAsterisco.configure(activebackground="#F4F1D6")
+        self.btnAsterisco.configure(background="#FCF75E")
+        self.btnAsterisco.configure(font="-family {Segoe UI Black} -size 12 -weight bold")
+        self.btnAsterisco.configure(text='''Primero en anchura''', command=lambda: self.open_code(1))
 
         self.btnOther = tk.Button(self.top)
         self.btnOther.place(relx=0.571, rely=0.463, height=56, width=197)
@@ -58,6 +58,16 @@ caníbales a la orilla derecha sin que en ningún momento los misioneros corran 
         global _img0
         _img0 = tk.PhotoImage(file=photo_location)
         self.imageProblem.configure(image=_img0)
+    
+    def open_code(self, id):
+        if id == 1:
+            open_path = os.path.join(os.getcwd(), "Group1", "Asterisco.py")
+            if os.path.exists(open_path):
+                subprocess.Popen(["python", open_path])
+            else:
+                print(f"Error: El archivo {open_path} no existe.")
+        else:
+            print(f"Error: ID {id} no reconocido.") #Logica para abrir el 2do archivo
 
 # Inicializacion de root.
 root = tk.Tk()

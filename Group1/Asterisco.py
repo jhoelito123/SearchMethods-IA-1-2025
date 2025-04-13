@@ -98,7 +98,7 @@ Acciones:
 Test Objetivo: Alcanzar el estado (0, 0, 1, 3, 3)
 Costo Ruta: Cada acción (cruce del río) tiene costo 1.
 """,
-                                    font=("-family {Comic Sans MS} -size 13"), wraplength=450, justify="left", bg="#E9ECEF")
+                                    font=("-family {Comic Sans MS} -size 13"), wraplength=450, justify="left", bg="#F4F1D6")
         self.descripcion.pack(fill="x")
 
         # Grafico
@@ -106,10 +106,10 @@ Costo Ruta: Cada acción (cruce del río) tiene costo 1.
         self.canvas.pack()
 
         # Right panel
-        right_frame = tk.Frame(main_frame, bg="#EAF2F8", bd=2, relief="sunken")
+        right_frame = tk.Frame(main_frame, bg="#FCF75E", bd=2, relief="sunken")
         right_frame.pack(side="right", fill="y", expand=False)
-        tk.Label(right_frame, text="Esquema de Estados A*", font=("Arial", 12, "bold"), bg="#EAF2F8").pack(pady=5)
-        tk.Label(right_frame, text="g: costo real | h: heurística | f: g+h", font=("Arial", 12, "bold"), bg="#EAF2F8").pack(pady=5)
+        tk.Label(right_frame, text="Esquema de Estados A*", font=("Arial", 12, "bold"), bg="#FCF75E").pack(pady=5)
+        tk.Label(right_frame, text="g: costo real | h: heurística | f: g+h", font=("Arial", 12, "bold"), bg="#FCF75E").pack(pady=5)
 
         # Lista de pasos
         self.listbox = tk.Listbox(right_frame, width=50, font=("Courier", 10))
