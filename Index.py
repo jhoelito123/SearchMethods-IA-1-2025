@@ -10,7 +10,7 @@ class IndexFrame:
         top.minsize(120, 1)
         top.maxsize(1540, 845)
         top.resizable(1,  1)
-        top.title("Toplevel 0")
+        top.title("Proyecto de Inteligencia Artificial")
         top.configure(background="#9ae1d4")
         self.top = top
 
