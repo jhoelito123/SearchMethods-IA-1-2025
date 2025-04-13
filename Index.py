@@ -47,16 +47,16 @@ class IndexFrame:
         self.lblAnya.configure(image=_img2)
 
         self.lblTresRaya = tk.Label(self.top)
-        self.lblTresRaya.place(relx=0.202, rely=0.271, height=61, width=205)
+        self.lblTresRaya.place(relx=0.202, rely=0.271, height=51, width=365)
         self.lblTresRaya.configure(background="#9ae1d4")
         self.lblTresRaya.configure(font="-family {Showcard Gothic} -size 21")
-        self.lblTresRaya.configure(text='''Tres en Raya''')
+        self.lblTresRaya.configure(text='''Misioneros y Canibales''')
 
         self.lblMision = tk.Label(self.top)
-        self.lblMision.place(relx=0.353, rely=0.51, height=51, width=365)
+        self.lblMision.place(relx=0.353, rely=0.51, height=61, width=205)
         self.lblMision.configure(background="#9ae1d4")
         self.lblMision.configure(font="-family {Showcard Gothic} -size 21")
-        self.lblMision.configure(text='''Misioneros y Canibales''')
+        self.lblMision.configure(text='''Tres en Raya''')
 
         self.lblTitle = tk.Label(self.top)
         self.lblTitle.place(relx=0.262, rely=0.032, height=50, width=548)

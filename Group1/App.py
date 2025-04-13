@@ -19,7 +19,6 @@ class PresentationFrame:
         self.btnPrimAnchura.configure(activebackground="#F4F1D6")
         self.btnPrimAnchura.configure(background="#FCF75E")
         self.btnPrimAnchura.configure(font="-family {Segoe UI Black} -size 12 -weight bold")
-        self.btnPrimAnchura.configure(foreground="#000000")
         self.btnPrimAnchura.configure(text='''Primero en anchura''')
 
         self.btnOther = tk.Button(self.top)
