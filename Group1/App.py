@@ -20,14 +20,14 @@ class PresentationFrame:
         self.btnAsterisco.configure(activebackground="#F4F1D6")
         self.btnAsterisco.configure(background="#FCF75E")
         self.btnAsterisco.configure(font="-family {Segoe UI Black} -size 12 -weight bold")
-        self.btnAsterisco.configure(text='''Primero en anchura''', command=lambda: self.open_code(1))
+        self.btnAsterisco.configure(text='''A*''', command=lambda: self.open_code(1))
 
         self.btnOther = tk.Button(self.top)
         self.btnOther.place(relx=0.571, rely=0.463, height=56, width=197)
         self.btnOther.configure(activebackground="#F4F1D6")
         self.btnOther.configure(background="#FCF75E")
         self.btnOther.configure(font="-family {Segoe UI Black} -size 12 -weight bold")
-        self.btnOther.configure(text='''Otro Algoritmo''')
+        self.btnOther.configure(text='''Bidireccional''', command=lambda: self.open_code(2))
 
         self.titleProblem = tk.Label(self.top)
         self.titleProblem.place(relx=0.332, rely=0.0, height=50, width=314)
@@ -68,7 +68,11 @@ caníbales a la orilla derecha sin que en ningún momento los misioneros corran 
             else:
                 print(f"Error: El archivo {open_path} no existe.")
         else:
-            print(f"Error: ID {id} no reconocido.") #Logica para abrir el 2do archivo
+            open_path = os.path.join(os.getcwd(), "Group1", "BidirectionalSearch.py")
+            if os.path.exists(open_path):
+                subprocess.Popen(["python", open_path])
+            else:
+                print(f"Error: El archivo {open_path} no existe.")
 
 # Inicializacion de root.
 root = tk.Tk()
