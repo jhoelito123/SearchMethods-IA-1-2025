@@ -85,7 +85,7 @@ class App:
         left_frame = tk.Frame(main_frame)
         left_frame.pack(side="left", fill="both", expand=True)
 
-        self.descripcion = tk.Label(left_frame, text="""Estados: Cualquier tupla (Mi, Ci, B, Md, Cd) donde:
+        self.descripcion = tk.Label(left_frame, text="""Estados: Cualquier tupla (Ci, Mi, B, Cd, Md) donde:
 -> Mi, Ci: número de misioneros y caníbales en la orilla izquierda
 -> B: posición de la barca (0 = izquierda, 1 = derecha)
 -> Md, Cd: número de misioneros y caníbales en la orilla derecha
