@@ -163,7 +163,7 @@ class MinimaxTreeViewer:
                     0.5, 0.5, f"Error: {str(e)}", ha='center', va='center')
 
         self.ax.set_title(
-            "Árbol de Búsqueda - Minimax (máx. 3 niveles visibles)")
+            "Árbol de Búsqueda - Minimax")
         self.ax.axis('off')
         self.canvas.draw()
 
@@ -186,7 +186,7 @@ def mostrar_nodos_heuristicos(root):
 class TicTacToe:
     def __init__(self, root):
         self.root = root
-        self.root.title("Tres en Raya - Humano vs IA (Minimax con heurística)")
+        self.root.title("Tres en Raya - Humano vs IA")
         self.board = [['' for _ in range(3)] for _ in range(3)]
         self.buttons = [[None for _ in range(3)] for _ in range(3)]
         self.tree_viewer = None
